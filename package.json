@@ -1,0 +1,23 @@
+{
+  "name": "spendingspree",
+  "version": "1.0.0",
+  "description": "This React App will help you with your money management.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitterMargaritas/SpendingSpree.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitterMargaritas/SpendingSpree/issues"
+  },
+  "homepage": "https://github.com/bitterMargaritas/SpendingSpree#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.18.3"
+  }
+}
