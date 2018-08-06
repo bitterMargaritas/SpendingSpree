@@ -17,16 +17,26 @@ Everyone's debt is recorded and can be erased when :
 - they front the money for another spending spree!
 - the debt is forgiven.
 
-For this we will need :
+For thisn we will need :
 - An app
 - A server
-- A database 
+- A database
 - A authentication scheme
 
-### Deploy me! 
+### Deploy me!
 
-I need: 
+I need:
+
+`npm install -g nodemon`
 
 `brew install mongodb`
+`sudo mkdir -p /data/db`
 
+`sudo mongod
 `nodemon ./server.js localhost 3000`
+
+This creates a user :
+
+```
+curl -X POST --header "Content-Type: application/json" -d '{"name":"Lorena", "amountOwed":300}' http://localhost:3000/users
+``
