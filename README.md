@@ -21,5 +21,12 @@ For this we will need :
 - An app
 - A server
 - A database 
-- A authentifircation scheme
+- A authentication scheme
 
+### Deploy me! 
+
+I need: 
+
+`brew install mongodb`
+
+`nodemon ./server.js localhost 3000`

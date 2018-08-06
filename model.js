@@ -7,7 +7,7 @@ var UserSchema = new Schema({
         required: "Fill name, or die"
     },
     amountOwed: {
-        type: int,
+        type: Number,
         default: 0
     }
 })

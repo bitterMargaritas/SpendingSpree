@@ -1,9 +1,20 @@
 const express = require('express')
 const app = express()
+    port = process.env.PORT || 3000,
+    mongoose = require('mongoose'),
+    User = require('./model')
+    bodyParser = require('body-parser');
 
-app.get('/', (req, res) => res.send('Oh Hi there !'))
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/BitterMargaritas')
+
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
 var routes = require('./router.js')
 routes(app)
 
-app.listen(3000, () => console.log('something beautiful'))
+app.listen(port)
+
+console.log('We are crushing it on port ' + port);
