@@ -32,11 +32,16 @@ I need:
 `brew install mongodb`
 `sudo mkdir -p /data/db`
 
-`sudo mongod
+`sudo mongod`
 `nodemon ./server.js localhost 3000`
 
 This creates a user :
 
 ```
 curl -X POST --header "Content-Type: application/json" -d '{"name":"Lorena", "amountOwed":300}' http://localhost:3000/users
-``
+```
+
+This displays a user :
+```
+curl localhost:3000/users/Lorena
+```

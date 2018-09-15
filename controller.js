@@ -2,12 +2,16 @@ var mongoose = require('mongoose'),
     User = mongoose.model('Users');
 
     exports.displayUserData = function(req,res) {
-        var userName = new User(req.params.user);
-        console.log(userName);
-        User.findById(userName, function(error, user) {
-            if (err)
-                res.send(err)
-            res.json(user);
+        var userName = req.params.user
+        User.find({name: userName}, function(error, user) {
+            if (error)
+                res.send(error);
+            if (user.length == 0) {
+                res.json({message: "There is no user by that name"});
+            } else {
+                res.json(user);
+            }
+
         });
     }
 
@@ -19,4 +23,5 @@ var mongoose = require('mongoose'),
                 res.send(err)
             res.json(user);
         });
-    }    }
+    }
+
