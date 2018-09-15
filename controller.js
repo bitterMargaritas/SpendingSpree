@@ -25,3 +25,15 @@ var mongoose = require('mongoose'),
         });
     }
 
+    exports.listUsers = function(req, res) {
+        User.find({}, function(error, userList) {
+            if (error)
+                res.send(error);
+            if(userList.length == 0 ){
+                res.json({message: "There are no users in the database :( "})
+            } else {
+                res.json(userList)
+            }
+        });
+    }
+

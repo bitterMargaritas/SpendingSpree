@@ -17,7 +17,7 @@ Everyone's debt is recorded and can be erased when :
 - they front the money for another spending spree!
 - the debt is forgiven.
 
-For thisn we will need :
+For this we will need :
 - An app
 - A server
 - A database
