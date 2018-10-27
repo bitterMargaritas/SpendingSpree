@@ -18,7 +18,8 @@ exports.createUser = function(req, res) {
     // we whould also check if the name already exists
     const data = IsDataValid(req.body.name, req.body.amountOwed)
     if (!data.status) {
-        res.json(data.error)
+if (!validation.status) {
+        res.json(validation.error)
     } else {
     console.log("all good")
     var new_user = new User(req.body);
