@@ -11,16 +11,14 @@ exports.displayUserData = function(req,res) {
         } else {
             res.json(user);
         }
-
     });
 }
 
 exports.createUser = function(req, res) {
-    console.log("check this")
-    console.log(req.body)
     // we whould also check if the name already exists
-    if (nameIsUnsound(req.body.name)) {
-        res.json("This name is unsound")
+    const data = IsDataValid(req.body.name, req.body.amountOwed)
+    if (!data.status) {
+        res.json(data.error)
     } else {
     console.log("all good")
     var new_user = new User(req.body);
@@ -28,7 +26,8 @@ exports.createUser = function(req, res) {
         if(err)
             res.send(err)
         res.json(user);
-    });}
+    });
+    }
 }
 
 exports.listUsers = function(req, res) {
@@ -49,6 +48,18 @@ const nameIsUnsound = (name) => {
     if (regexp.test(name)) {
         return true
     }
-
 }
 
+
+const IsDataValid = (name, amount) => {
+    var errorMessage = (unsoundItem) => {
+        return "Error: " + unsoundItem + " is unsound"
+    }
+    if (nameIsUnsound(name)){
+        return {status: false, error: errorMessage(name)}
+    } else if (isNaN(amount)){
+        return {status: false, error: errorMessage(amount)}
+    } else {
+        return {status: true, error: "everything is fine"}
+    }
+}
