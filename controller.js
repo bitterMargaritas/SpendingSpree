@@ -17,7 +17,6 @@ exports.displayUserData = function(req,res) {
 exports.createUser = function(req, res) {
     // we whould also check if the name already exists
     const validation = IsDataValid(req.body.name, req.body.amountOwed)
-    if (!data.status) {
 if (!validation.status) {
         res.json(validation.error)
     } else {
